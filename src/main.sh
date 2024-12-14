@@ -15,15 +15,37 @@ downlib_dl() {
     args="$4"          # Additional arguments
 
     # Determine which method to use
-    if [[ " ${url_methods[@]} " =~ " ${method} " ]]; then
+    # Check if the method is in url_methods
+    found=0
+    for m in $url_methods; do
+        if [ "$m" = "$method" ]; then
+            found=1
+            break
+        fi
+    done
+
+    if [ $found -eq 1 ]; then
         # Call the corresponding function for URL-based methods (aria2c, wget, curl)
         "dl_$method" "$url" "$dir" "$args"
-    elif [[ " ${repo_methods[@]} " =~ " ${method} " ]]; then
+        return
+    fi
+
+    # Check if the method is in repo_methods
+    found=0
+    for m in $repo_methods; do
+        if [ "$m" = "$method" ]; then
+            found=1
+            break
+        fi
+    done
+
+    if [ $found -eq 1 ]; then
         # Call the corresponding function for repository-based methods (git)
         "dl_$method" "$url" "$dir" "$args"
-    else
-        # If the method is not supported
-        echo "Error: Unsupported method '$method'. Supported methods are: ${url_methods[@]} and ${repo_methods[@]}"
-        return 1
+        return
     fi
+
+    # If the method is not supported
+    echo "Error: Unsupported method '$method'. Supported methods are: $url_methods and $repo_methods"
+    return 1
 }

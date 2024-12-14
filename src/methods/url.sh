@@ -4,7 +4,7 @@
 # Copyright (c) 2024, Kolya
 
 # Url methods
-url_methods=("aria2c" "wget" "curl")
+url_methods="aria2c wget curl"
 
 # Aria2c
 dl_aria2c() {

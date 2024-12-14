@@ -4,7 +4,7 @@
 # Copyright (c) 2024, Kolya
 
 # Repo methods
-repo_methods=("git")
+repo_methods="git"
 
 # Git
 dl_git() {
