@@ -4,7 +4,7 @@
 # Copyright (c) 2024, Kolya
 
 # Import scripts
-. downlib/methods.sh
+. src/methods/url.sh
 
 # Dl
 downlib_dl() {
