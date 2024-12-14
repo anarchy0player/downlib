@@ -33,6 +33,60 @@ downlib_scp() {
     eval $scp_cmd
 }
 
+# Ftp
+downlib_ftp() {
+    address="$1"
+    dir="$2"
+    args="$3"
+    pwd="$4" # {optional}
+    user="$5" # {optional}
+
+    # If the username and password are provided use them in the address
+    if [ -n "$user" ] && [ -n "$pwd" ]; then
+        # Build ftp address with user and password
+        ftp_address="ftp://$user:$pwd@$url"
+    else
+        # Use the address as is if no username/password are provided
+        ftp_address="ftp://$url"
+    fi
+
+    # Build the curl cmd with parameters for ftp
+    ftp_curl_cmd="curl $args $ftp_url -o $dir"
+
+    # Execute the cmd
+    eval $ftp_curl_cmd
+}
+
+# Sftp
+downlib_sftp() {
+    address="$1"
+    dir="$2"
+    args="$3"
+    user="$4" # {optional}
+    pwd="$5" # {optional}
+    ssh_key="$6" # {optional}
+
+    # If the username and password are provided use them in the address
+    if [ -n "$user" ] && [ -n "$pwd" ]; then
+        # Build sftp address with user and password
+        sftp_address="sftp://$user:$pwd@$address"
+    elif [ -n "$user" ] && [ -n "$ssh_key" ]; then
+        # If ssh key is provided use it in the connection
+        sftp_address="sftp://$user@$address"
+        curl_cmd="curl -i -u $user --key $ssh_key $args $sftp_url -o $dir"
+    else
+        # If no username/password or ssh key are provided use standard sftp without auth
+        sftp_address="sftp://$address"
+        sftp_curl_cmd="curl $args $sftp_url -o $dir"
+    fi
+
+    # Build the curl cmd with parameters for sftp
+    sftp_curl_cmd="curl $args $sftp_url -o $dir"
+
+    # Execute the cmd
+    eval $sftp_curl_cmd
+}
+
 # Rsync
 downlib_rsync() {
     address="$1"
