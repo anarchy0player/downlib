@@ -20,11 +20,10 @@ dl_aria2c() {
         return 0
     fi
 
-    # Build the aria2c command with parameters
+    # Build the aria2c cmd with parameters
     cmd="aria2c $args -d $dir -o $filename $url"
 
-    # Execute the command
-    echo "Running: $cmd"
+    # Execute the cmd
     eval $cmd
 }
 
@@ -42,11 +41,10 @@ dl_wget() {
         return 0
     fi
 
-    # Build the wget command with parameters
+    # Build the wget cmd with parameters
     cmd="wget $args $url -P $dir"
 
-    # Execute the command
-    echo "Running: $cmd"
+    # Execute the cmd
     eval $cmd
 }
 
@@ -59,10 +57,9 @@ dl_curl() {
     filename=$(basename "$url")
     filepath="$dir$filename"
 
-    # Build the curl command with parameters
+    # Build the curl cmd with parameters
     cmd="curl $args -o $filepath $url"
 
-    # Execute the command
-    echo "Running: $cmd"
+    # Execute the cmd
     eval $cmd
 }
