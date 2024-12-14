@@ -14,22 +14,21 @@ downlib_scp() {
     pwd="$4" # {optional}
     ssh_key="$5" # {optional}
 
-    # If the SSH key is not provided use sshpass with the password
+    # If the ssh key is not provided use sshpass with the password
     if [ -z "$ssh_key" ]; then
         if [ -n "$pwd" ]; then
-            # If the password is provided use sshpass
+            # If the pwd is provided use sshpass
             scp_cmd="sshpass -p '$pwd' scp $args $address $dir"
         else
-            # If neither the key nor the password is provided use standard SSH without key or password
+            # If neither the key nor the pwd is provided use standard SSH without key or password
             scp_cmd="scp $args $address $dir"
         fi
     else
-        # If the SSH key is provided use it for the connection
+        # If the ssh key is provided use it for the connection
         scp_cmd="scp -i $ssh_key $args $address $dir"
     fi
 
     # Execute the cmd
-    echo "Running: $scp_cmd"
     eval $scp_cmd
 }
 
@@ -47,14 +46,14 @@ downlib_ftp() {
     # If the username and password are provided use them in the address
     if [ -n "$user" ] && [ -n "$pwd" ]; then
         # Build ftp address with user and password
-        ftp_address="ftp://$user:$pwd@$url"
+        ftp_address="ftp://$user:$pwd@$address"
     else
         # Use the address as is if no username/password are provided
-        ftp_address="ftp://$url"
+        ftp_address="ftp://$address"
     fi
 
     # Build the curl cmd with parameters for ftp
-    ftp_curl_cmd="curl $args $ftp_url -o $dir"
+    ftp_curl_cmd="curl $args $ftp_address -o $dir"
 
     # Execute the cmd
     eval $ftp_curl_cmd
@@ -79,15 +78,15 @@ downlib_sftp() {
     elif [ -n "$user" ] && [ -n "$ssh_key" ]; then
         # If ssh key is provided use it in the connection
         sftp_address="sftp://$user@$address"
-        curl_cmd="curl -i -u $user --key $ssh_key $args $sftp_url -o $dir"
+        curl_cmd="curl -i -u $user --key $ssh_key $args $sftp_address -o $dir"
     else
         # If no username/password or ssh key are provided use standard sftp without auth
         sftp_address="sftp://$address"
-        sftp_curl_cmd="curl $args $sftp_url -o $dir"
+        sftp_curl_cmd="curl $args $sftp_address -o $dir"
     fi
 
     # Build the curl cmd with parameters for sftp
-    sftp_curl_cmd="curl $args $sftp_url -o $dir"
+    sftp_curl_cmd="curl $args $sftp_address -o $dir"
 
     # Execute the cmd
     eval $sftp_curl_cmd
