@@ -31,3 +31,29 @@ downlib_svn() {
     # Execute the cmd
     eval $svn_cmd
 }
+
+# Mercurial
+downlib_hg() {
+    url="$1"
+    dir="$2"
+    args="$3"
+
+    # Build the hg cmd with parameters
+    hg_cmd="hg clone $args $url $dir"
+
+    # Execute the cmd
+    eval $hg_cmd
+}
+
+# Bazaar
+downlib_bzr() {
+    url="$1"
+    dir="$2"
+    args="$3"
+
+    # Build the bzr cmd with parameters
+    bzr_cmd="bzr branch $args $url $dir"
+
+    # Execute the cmd
+    eval $bzr_cmd
+}
