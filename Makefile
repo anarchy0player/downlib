@@ -47,7 +47,6 @@ chk_scripts:
 
 install_deps:
 	@apt install -y --no-install-recommends \
-		git \
 		make \
 		shellcheck
 ci:
