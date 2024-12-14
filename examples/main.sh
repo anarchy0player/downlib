@@ -16,8 +16,8 @@ show_menu() {
 
 # Process user input
 read_choice() {
-    echo -n " # Enter your choice: "
-    read choice
+    printf " # Enter your choice: "
+    read -r choice
     case "$choice" in
         0)
             ./examples/wget.sh

@@ -43,7 +43,7 @@ perms:
 	@find .git/hooks -type f \( -name "pre-commit" -o -name "pre-push" \) -exec chmod +x {} +
 
 chk_scripts:
-	@find . -type d \( -name ".git" -o -name "out" \) -prune -o -type f -name "*.sh" -exec shellcheck {} \;
+	@find . -type d \( -name ".git" -o -name "out" \) -prune -o -type f -name "*.sh" -exec shellcheck -x {} \;
 
 install_deps:
 	@apt install -y --no-install-recommends \
