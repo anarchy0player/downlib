@@ -50,6 +50,8 @@ install_deps:
 		git \
 		make \
 		shellcheck
+ci:
+	@./scripts/ci.sh
 
 help:
 	@echo
