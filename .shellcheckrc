@@ -6,3 +6,6 @@ shell=sh
 
 # Style
 severity=style
+
+# Disable
+disable=SC2086
