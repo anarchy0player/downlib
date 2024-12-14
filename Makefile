@@ -40,7 +40,7 @@ perms:
    		-type d -exec chmod 755 {} + \
     	-o -type f -exec chmod 644 {} +
 	@find . -type f \( -name "*.sh" \) -exec chmod +x {} +
-	@find .git/hooks -type f \( -name "pre-commit" -o -name "pre-push" \) -exec chmod -x {} +
+	@find .git/hooks -type f \( -name "pre-commit" -o -name "pre-push" \) -exec chmod +x {} +
 
 chk_scripts:
 	@find . -type d \( -name ".git" -o -name "out" \) -prune -o -type f -name "*.sh" -exec shellcheck {} \;
