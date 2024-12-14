@@ -3,6 +3,9 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2024, Kolya
 
+# Url methods
+url_methods=("aria2c" "wget" "curl")
+
 # Aria2c
 dl_aria2c() {
     url="$1"
@@ -62,18 +65,4 @@ dl_curl() {
     # Execute the command
     echo "Running: $cmd"
     eval $cmd
-}
-
-# Git
-dl_git() {
-    url="$1"
-    dir="$2"
-    args="$3"
-
-    # Build the git command with parameters
-    git_cmd="git clone $args $url $dir"
-
-    # Execute the command
-    echo "Running: $git_cmd"
-    eval $git_cmd
 }

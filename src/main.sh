@@ -5,31 +5,25 @@
 
 # Import scripts
 . src/methods/url.sh
+. src/methods/repo.sh
 
-# Dl
+# Download function
 downlib_dl() {
-    method="${1:-aria2c}"
-    url="$2"
-    dir="$3"
-    args="$4"
+    method="$1"        # Download method (default is aria2c)
+    url="$2"           # URL for downloading
+    dir="$3"           # Directory for downloading
+    args="$4"          # Additional arguments
 
-    # Check which utility was provided and call the corresponding method
-    case "$method" in
-        aria2c)
-            dl_aria2c "$url" "$dir" "$args"
-            ;;
-        wget)
-            dl_wget "$url" "$dir" "$args"
-            ;;
-        curl)
-            dl_curl "$url" "$dir" "$args"
-            ;;
-        git)
-            dl_git "$url" "$dir" "$args"
-            ;;
-        *)
-            echo "Only aria2c, wget, curl, and git are supported. Invalid method received: $method"
-            return 1
-            ;;
-    esac
+    # Determine which method to use
+    if [[ " ${url_methods[@]} " =~ " ${method} " ]]; then
+        # Call the corresponding function for URL-based methods (aria2c, wget, curl)
+        "dl_$method" "$url" "$dir" "$args"
+    elif [[ " ${repo_methods[@]} " =~ " ${method} " ]]; then
+        # Call the corresponding function for repository-based methods (git)
+        "dl_$method" "$url" "$dir" "$args"
+    else
+        # If the method is not supported
+        echo "Error: Unsupported method '$method'. Supported methods are: ${url_methods[@]} and ${repo_methods[@]}"
+        return 1
+    fi
 }

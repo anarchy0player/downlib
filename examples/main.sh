@@ -10,7 +10,8 @@ show_menu() {
     echo
     echo " #0 | Download with wget"
     echo " #1 | Download with wget (use args)"
-    echo " #2 | Exit"
+    echo " #2 | Download with git"
+    echo " #3 | Exit"
     echo
 }
 
@@ -25,7 +26,10 @@ read_choice() {
         1)
             ./examples/wget_args.sh
             ;;
-        2)
+	2)
+	    ./examples/git.sh
+	    ;;
+        3)
             echo "Exiting the examples"
             exit 0
             ;;
