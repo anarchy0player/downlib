@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2024, Kolya
+
+# Set the root
+root = true
+
+# All
+[*]
+indent_style = space
+indent_size = 4
+tab_width = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Main
+[*.sh, *.md, Dockerfile]
+indent_size = 2
+
+# Makefile
+[Makefile]
+indent_style = tab
+tab_width = 8
+trim_trailing_whitespace = false
+insert_final_newline = true
+
+# Ignore
+[.gitignore, .dockerignore]
+indent_size = 1

@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2024, Kolya
+
+# +------------------------------+
+# +   Build dirs and artifacts   +
+# +------------------------------+
+**/{out,.dSYM,*.{a,bin,dll,elf,exe,i,o,out,so}}
+
+# +------------------------------+
+# +    Editor dirs and files     +
+# +------------------------------+
+
+# Visual Studio Code
+**/.vscode/
+
+# Emacs and Vim temporary files
+**/.emacs.desktop* **/*.swp **/*.swo
+
+# JetBrains IDEs
+**/.idea/
+
+# Eclipse
+**/{.classpath,.project,.settings}/
+
+# KDevelop
+**/*.{kdev,kdev4}
+
+# Sublime Text
+**/*.{sublime-project,sublime-workspace}
+
+# Rust Analyzer configuration
+**/rust-project.json
+
+# Misc editor-related files
+**/*~ **/TAGS*~
+
+# +------------------------------+
+# +    System dirs and files     +
+# +------------------------------+
+
+# Windows specific system files
+**/*.cab **/Thumbs.db
+
+# MacOS specific system files
+**/.DS_Store **/AppleDouble
+
+# Backup files
+**/*.{bak,orig,tmp}
+
+# +------------------------------+
+# +    Utils dirs and files      +
+# +------------------------------+
+
+# Docker
+**/.docker/
+**/get-docker.sh

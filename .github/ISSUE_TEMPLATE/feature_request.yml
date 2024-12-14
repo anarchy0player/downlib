@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2024, Kolya
+
+name: Feature Request
+
+description: "Request for a new feature in the project."
+
+labels:
+  - "feature-request"
+  - "enhancement"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request Description
+        Please describe the feature you want to add and why it is necessary.
+  - type: input
+    attributes:
+      label: "How will this feature help?"
+      description: "Describe how this feature will improve your experience with the project."
+      placeholder: "For example, it could improve performance or add new capabilities."
+  - type: textarea
+    attributes:
+      label: "Additional Comments"
+      description: "If you have any additional ideas or comments, please share them here."
+      placeholder: "Share any extra information regarding your request."
+  - type: input
+    attributes:
+      label: "Screenshots or Examples"
+      description: "If you have any examples or screenshots, please upload them here."
+      placeholder: "Attach files if necessary."
+  - type: checkbox
+    attributes:
+      label: "I understand that adding a new feature may take time."
+      required: true
