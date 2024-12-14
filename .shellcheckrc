@@ -9,3 +9,4 @@ severity=style
 
 # Disable
 disable=SC2086
+disable=SC2034
