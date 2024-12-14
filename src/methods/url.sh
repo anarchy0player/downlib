@@ -7,7 +7,7 @@
 url_methods="aria2c wget curl"
 
 # Aria2c
-dl_aria2c() {
+downlib_aria2c() {
     url="$1"
     dir="$2"
     args="$3"
@@ -28,7 +28,7 @@ dl_aria2c() {
 }
 
 # Wget
-dl_wget() {
+downlib_wget() {
     url="$1"
     dir="$2"
     args="$3"
@@ -49,7 +49,7 @@ dl_wget() {
 }
 
 # Curl
-dl_curl() {
+downlib_curl() {
     url="$1"
     dir="$2"
     args="$3"

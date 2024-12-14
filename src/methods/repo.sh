@@ -7,7 +7,7 @@
 repo_methods="git svn"
 
 # Git
-dl_git() {
+downlib_git() {
     url="$1"
     dir="$2"
     args="$3"
@@ -20,7 +20,7 @@ dl_git() {
 }
 
 # Svn
-dl_svn() {
+downlib_svn() {
     url="$1"
     dir="$2"
     args="$3"

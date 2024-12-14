@@ -14,13 +14,13 @@ make help
 - ### Download with aria2c
 
 ```sh
-downlib_dl aria2c https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.4.tar.xz
+downlib_aria2c https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.4.tar.xz
 ```
 
 - ### Download with wget (use args)
 
 ```sh
-downlib_dl wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.4.tar.xz out/dl "-q"
+downlib_wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.4.tar.xz out/dl "-q"
 ```
 
 ## License

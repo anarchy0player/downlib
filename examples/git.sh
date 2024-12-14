@@ -7,4 +7,4 @@
 . src/main.sh
 
 # Download with git
-downlib_dl git https://github.com/anarchy0player/downlib.git out/dl/downlib
+downlib_git https://github.com/anarchy0player/downlib.git out/dl/downlib
