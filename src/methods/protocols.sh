@@ -41,6 +41,9 @@ downlib_ftp() {
     pwd="$4" # {optional}
     user="$5" # {optional}
 
+    # Init the ftp_url var
+    ftp_url=""
+
     # If the username and password are provided use them in the address
     if [ -n "$user" ] && [ -n "$pwd" ]; then
         # Build ftp address with user and password
@@ -65,6 +68,9 @@ downlib_sftp() {
     user="$4" # {optional}
     pwd="$5" # {optional}
     ssh_key="$6" # {optional}
+
+    # Init the sftp_url var
+    sftp_url=""
 
     # If the username and password are provided use them in the address
     if [ -n "$user" ] && [ -n "$pwd" ]; then
