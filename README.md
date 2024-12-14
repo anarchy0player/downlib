@@ -1,7 +1,8 @@
 # **Downlib**
 
-### **Downlib** is a library for downloading
-### files using various utilities
+### **Downlib** is a library for
+#### downloading, copy and move files
+#### using various utilities
 
 ## Help
 
